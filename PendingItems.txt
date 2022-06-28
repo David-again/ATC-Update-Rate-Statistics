@@ -1,0 +1,19 @@
+Readme.md
+    1.	User Interface / How to run (done; need to review.)
+    4.	Test Cases (done; need to review)
+Edit the test files for test cases (done)
+
+Test Case description
+Manual Test Procedure
+Overall release test plan
+
+
+ManualTest_01.py
+ManualTest_02.py
+
+
+Others (additional stufff, optional if time permits)
+****************************************************
+    Block diagram of how the program flows and the individual functions
+
+    Should consider refactoring into functions/modules.
