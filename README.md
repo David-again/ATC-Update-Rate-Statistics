@@ -1,12 +1,12 @@
 # Update Rate Statistics [URS].
 #### A tool for analyzing aircraft traffic data 
 _______
-
+### Read this first!
 "Update Rate Statistics", or URS, is a tool written in Python for interpreting and post-processing voluminous data gathered about aircraft as they communicate with Air Traffic Control (ATC) infrastructure. The data is read as a `.csv` file, processed after the fact and the output is written to a `.json` file.
 
 #### Content of this ReadMe file
 0. Package contents
-1.	User Interface / How to run
+1.	How to run - General information
 1.1 Automated processing
 1.2 Manual processing
 2.	Input file format
@@ -24,25 +24,39 @@ _______
 This package should consist of at least the following items:
 Filename | Description
 -|- 
-`"output.json"` | Output file for the result of processing
+`"README.md"` | This read-me file, providing a usage overview
+`"UpdateRateStatistics.py"` | Script written in Python for processing the `.csv` file
+`"ManualTest.py"` | Script written for ManualTest procedure, to be used with data files.
+`"output.json"` | Output file for the result of processing.  A new one is created when `UpdateRateStatistics.py` is run.
 `"data/sampledata1.csv"` | Input file supplied with the exercise
-`"Documentation/README.md"` | This read-me file, providing a usage overview
+`"data/sample_####recs.csv"` | Input file(s) supplied for test cases
 `"Documentation/DesignDoc.md"` | Design document, providing a high-level, quasi-technical description of the software from a design viewpoint
-`"UpdateRateStatistics.py"` | Script written in Python
-`"Notebook_UpdateRateStatistics.ipynb"` | Script written in Jupyter Notebooks
+`"Documentation/ReleaseTestPlan.md"` | General description of the Test Procedures (including Manual Testing)
+
+Additionally, it MAY contain the following, although they can be generated from the above list.
+
+Filename | Description
+-|-
+`"Notebook_UpdateRateStatistics.ipynb"` | Same Script written in Jupyter Notebooks format, if preferred.
+`"test-output.json"` | Output file for the result of processing.  A new one is created when `ManualTest.py` is run.
 
 
-## 1. User Interface / How to run
-**1.1** For automated processing, use `UpdateRateStatistics.py`
+**Note:**
 
-**1.2** For manual processing, there are 2 files: 
-- To process small datasets, use `ManualTest_01.py`
-- To process large datasets, use `ManualTest_02.py`
+`output.json` and `test-output.json` are created or overwritten every time the `UpdateRateStatistics.py` and `ManualTest.py` (respectively) are run.  Initially, there is no `test-output.json` file.
 
-    **Notes**
-    - `ManualTest_01.py` only requires the path of the input file (`.csv`).
-    - `ManualTest_02.py` requires both an input file `(.csv)` and the target address of the aircraft for which the test is being conducted.
-    - Please see `TestProcedure.md` for more details on Manual Test Procedures.
+## 1. How to run - General information
+**1.1** For automated processing, use `UpdateRateStatistics.py`.  The input file path is parameterized in a variable at the top, and can be changed for manual testing.
+
+    `datafile_path = "data/sampledata1.csv"      #change input file here`
+
+**1.2** For manual processing, please use `ManualTest.py`
+
+
+
+**Notes**
+- `ManualTest.py` requires both an input file `(.csv)` and the target address of the aircraft for which the test is being conducted.
+- Please see the `ReleaseTestPlan.md` for more details (including Manual Test Procedures).
 
 
 ## 2. Input file format
@@ -76,10 +90,10 @@ One of these is genereated for each airplane in the CSV file, and they are all c
 
 ## 4. Test Cases
 
-Please see the docs in the `/Testing` folder for details about testing and creating test cases.
+Please consult the `ReleaseTestPlan.md` for details about testing and creating/substituting test cases.
 
 ## 5. Performance
-Run-time will vary with the number of ***unique*** target addresses, and not the total number of records in the input file.  This is because the algorithm involves iterating as many times as the number of unique target address.  Therefore, performance is `O(N)-time`.
+Run-time will vary with the number of ***unique*** target addresses, and not the total number of records in the input file.  This is because the algorithm involves iterating as many times as the number of unique target address.  Therefore, performance is **`O(N)-time`**.
 
 ## 6. Limitations
 Please review the following sections above: 
@@ -94,6 +108,6 @@ This script/program can be easily expanded, depending on the desired output fiel
 ## 8. Comments and Conclusion
 Python (and Pandas) was chosen for this project because of its data manipulation and analysis capabilities for the complexities described above, but comments, input and feedback are welcome.
 
->Thank you for taking the time to review my work.  I hope to hear from you soon!
+>Thank you for taking the time to review my work.  I hope to hear from you soon, eager to answer any questions!
 (c) 2022 David Ogunbanjo
 d.ogunbanjo@yahoo.com

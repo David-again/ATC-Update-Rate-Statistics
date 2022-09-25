@@ -1,4 +1,4 @@
-# Update Rate Statistics [URS].
+## Design Document: Update Rate Statistics [URS].
 #### A tool for analyzing aircraft traffic data 
 _______
 
@@ -47,6 +47,6 @@ The script can be run using Jupyter Notebooks.
 
 ## Appendices
 Currently, this section is intentionally blank
->Thank you for taking the time to review my work.  I hope to hear from you soon!
+>Thank you for taking the time to review my work.  I hope to hear from you soon, eager to answer any questions!
 (c) 2022 David Ogunbanjo
 d.ogunbanjo@yahoo.com

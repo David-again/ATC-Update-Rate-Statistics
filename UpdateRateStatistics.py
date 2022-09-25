@@ -2,17 +2,19 @@
 import json
 import pandas as pd
 pd.options.mode.chained_assignment = None  
-# tmp01 = pd.read_csv("data/sample_999recs.csv")
-tmp01 = pd.read_csv("data/sampledata1.csv")
+
+datafile_path = "data/sampledata1.csv"      #change input file here
+
+rawdataframe = pd.read_csv(datafile_path)
 
 #2 Create new time column of type datetime from existing string column
-tmp01["timestamp"] = pd.to_datetime(tmp01["Time"])
+rawdataframe["timestamp"] = pd.to_datetime(rawdataframe["Time"])
 
 #3 Rename the column to targetAddress 
-tmp01.rename(columns={"Target Address": "targetAddress"}, inplace=True)
+rawdataframe.rename(columns={"Target Address": "targetAddress"}, inplace=True)
 
 #4 create new DataFrame with datetime data, discarding extraneous info from original file
-allAirData = tmp01[["timestamp", "targetAddress"]]
+allAirData = rawdataframe[["timestamp", "targetAddress"]]
 
 # 5a Initialize loop variable and String Accumulator for final result 
 strAccumulator = ""
